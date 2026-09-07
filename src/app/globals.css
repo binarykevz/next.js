@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "leaflet/dist/leaflet.css";
+
+:root {
+  --header-height: 86px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  color: #24170e;
+  font-family: "IM Fell English", Georgia, serif;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(221, 175, 91, 0.08), transparent 30%),
+    radial-gradient(circle at 80% 90%, rgba(86, 211, 224, 0.06), transparent 30%),
+    linear-gradient(135deg, #130a06, #2b170c 35%, #160b06 70%, #321a0d);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(216, 170, 80, 0.35);
+  color: white;
+}
+
+/* Magical dust overlays */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9990;
+}
+
+body::before {
+  opacity: 0.16;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.5) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255,214,124,.35) 0 1px, transparent 1.5px);
+  background-size: 97px 131px, 157px 193px;
+  animation: dustFloat 28s linear infinite;
+}
+
+body::after {
+  opacity: 0.055;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 3px,
+    rgba(255,255,255,.12) 4px
+  );
+  mix-blend-mode: overlay;
+}
+
+@keyframes dustFloat {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-100px, -140px, 0); }
+}
+
+/* Leaflet custom styles */
+.ancient-ship-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.leaflet-container {
+  font-family: "IM Fell English", Georgia, serif;
+  background: #153e43;
+}
+
+.leaflet-tile { opacity: 0.93; }
+.leaflet-control-zoom { border: 0 !important; box-shadow: none !important; }
+.leaflet-control-zoom a {
+  width: 35px !important; height: 35px !important;
+  line-height: 32px !important;
+  color: #f0cf89 !important;
+  background: #2c190c !important;
+  border: 1px solid #a57630 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #e6ce91; border: 2px solid #60401f;
+  border-radius: 0; box-shadow: 0 15px 30px rgba(0,0,0,.45);
+}
+.leaflet-popup-tip { background: #e6ce91; }
+.leaflet-popup-close-button { color: #4e3016 !important; }
+.country-tooltip {
+  background: rgba(30, 16, 8, 0.95) !important;
+  color: #f1d594 !important;
+  border: 1px solid #8c5c23 !important;
+  font-family: "Cinzel", serif !important;
+}
+
+@media (max-width: 800px) {
+  :root { --header-height: 72px; }
+}
