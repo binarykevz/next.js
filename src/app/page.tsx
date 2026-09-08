@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 
 // Force Next.js to ONLY render these in the browser (skips server prerender crash)
