@@ -3,9 +3,6 @@
 @tailwind utilities;
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
-
-@import "leaflet/dist/leaflet.css";
-
 :root {
   --header-height: 86px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
