@@ -14,5 +14,5 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
   if (!mounted) return <div style={{ background: "#160c07", minHeight: "100vh" }} />;
-  return (<><AnimatePresence>{!ready && <AppLoader onReady={() => setReady(true)} />}</AnimatePresence><div id="appShell" className={ready ? "ready" : ""}><SiteHeader /><main className="main-wrap"><ControlPanel /><MapShell /><JournalSection /></main><Footer /></div><Toast /></>);
+  return (<><h1 style={{color:"lime",fontSize:"60px",position:"fixed",top:0,left:0,zIndex:99999,background:"black",padding:"20px"}}>BUILD V99</h1><AnimatePresence>{!ready && <AppLoader onReady={() => setReady(true)} />}</AnimatePresence><div id="appShell" className={ready ? "ready" : ""}><SiteHeader /><main className="main-wrap"><ControlPanel /><MapShell /><JournalSection /></main><Footer /></div><Toast /></>);
 }
